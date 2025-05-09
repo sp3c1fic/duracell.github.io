@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. Duracell | Technical CV</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00ffcc;
+      --secondary: #00ccff;
+      --accent: #ff00cc;
+      --bg-dark: #0a0a0a;
+      --bg-light: #121212;
+      --text: #e0ffe3;
+      --grid-line: rgba(0, 255, 204, 0.15);
+    }
+    
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      font-family: 'Share Tech Mono', monospace;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+    
+    /* Grid Background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 30px 30px;
+      z-index: -1;
+      opacity: 0.4;
+    }
+    
+    /* Main Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px;
+      position: relative;
+    }
+    
+    /* Animated Border */
+    .border-container {
+      position: relative;
+      border: 1px solid var(--primary);
+      border-radius: 5px;
+      padding: 40px;
+      background-color: rgba(10, 10, 10, 0.7);
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+    
+    .border-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+      background-size: 300% 100%;
+      animation: borderGlow 6s linear infinite;
+    }
+    
+    @keyframes borderGlow {
+      0% { background-position: 0 0; }
+      100% { background-position: 300% 0; }
+    }
+    
+    /* Header Section */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    
+    .glitch-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    
+    h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin: 0;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--secondary);
+      margin-top: 10px;
+      letter-spacing: 3px;
+    }
+    
+    /* Glitch Effect */
+    .glitch-wrapper::before, .glitch-wrapper::after {
+      content: "Dimitar Dimitrov — Technical CV";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      opacity: 0.8;
+    }
+    
+    .glitch-wrapper::before {
+      color: var(--accent);
+      z-index: -1;
+      animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+      animation-delay: 0.1s;
+    }
+    
+    .glitch-wrapper::after {
+      color: var(--secondary);
+      z-index: -2;
+      animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+      animation-delay: 0.15s;
+    }
+    
+    @keyframes glitch {
+      0% {
+        transform: translate(0);
+      }
+      20% {
+        transform: translate(-2px, 2px);
+      }
+      40% {
+        transform: translate(-2px, -2px);
+      }
+      60% {
+        transform: translate(2px, 2px);
+      }
+      80% {
+        transform: translate(2px, -2px);
+      }
+      100% {
+        transform: translate(0);
+      }
+    }
+    
+    /* Section Styles */
+    .section {
+      margin-top: 50px;
+      position: relative;
+    }
+    
+    h2 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--secondary);
+      border-bottom: 1px solid var(--secondary);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+    
+    h2 i {
+      margin-right: 15px;
+      font-size: 1.5rem;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* Profile Section */
+    .profile-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+    }
+    
+    .profile-image {
+      width: 170px;
+      height: 170px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 3px solid var(--primary);
+      flex-shrink: 0;
+      position: relative;
+    }
+    
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .profile-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(45deg, transparent 40%, var(--primary) 40%, var(--primary) 60%, transparent 60%) var(--counterpos, 0%) 0 / 300% 100%,
+        linear-gradient(-45deg, transparent 40%, var(--primary) 40%, var(--primary) 60%, transparent 60%) var(--counterpos, 0%) 0 / 300% 100%;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      padding: 3px;
+      animation: profileBorder 3s infinite linear;
+    }
+    
+    @keyframes profileBorder {
+      to {
+        --counterpos: 100%;
+      }
+    }
+    
+    .profile-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    
+    .profile-text p {
+      margin-top: 0;
+    }
+    
+    .profile-text strong {
+      color: var(--primary);
+    }
+    
+    /* Technical Stack */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 20px;
+    }
+    
+    .tech-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s, filter 0.3s;
+      cursor: default;
+    }
+    
+    .tech-item:hover {
+      transform: translateY(-5px);
+      filter: drop-shadow(0 0 5px var(--primary));
+    }
+    
+    .tech-logo {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 255, 204, 0.2);
+      margin-bottom: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .tech-logo::after {
+      content: "";
+      position: absolute;
+      top: -80%;
+      left: -100%;
+      width: 60%;
+      height: 220%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: rotate(35deg);
+      transition: all 0.6s;
+    }
+    
+    .tech-item:hover .tech-logo::after {
+      left: 130%;
+    }
+    
+    .tech-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 2px rgba(0, 255, 204, 0.5));
+    }
+    
+    .tech-name {
+      font-size: 0.8rem;
+      color: var(--text);
+    }
+    
+    /* Projects Section */
+    .projects-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+      gap: 20px;
+    }
+    
+    .project-card {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 255, 204, 0.2);
+      border-radius: 5px;
+      padding: 20px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 255, 204, 0.2);
+      background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .project-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-top: 0;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .project-title i {
+      margin-right: 10px;
+      font-size: 1rem;
+    }
+    
+    .project-card a {
+      color: var(--secondary);
+      text-decoration: none;
+      transition: all 0.3s;
+      position: relative;
+    }
+    
+    .project-card a:hover {
+      color: var(--primary);
+      text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+    }
+    
+    .project-card a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease-out;
+    }
+    
+    .project-card a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    
+    .project-desc {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    
+    .project-tag {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: rgba(0, 255, 204, 0.1);
+      border: 1px solid rgba(0, 255, 204, 0.3);
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    
+    /* Certifications Section */
+    .cert-progress {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    
+    .cert-item {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 255, 204, 0.2);
+      border-radius: 5px;
+      padding: 20px;
+      width: calc(50% - 15px);
+      min-width: 250px;
+      flex-grow: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cert-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-top: 0;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .cert-progress-bar {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 15px;
+      position: relative;
+    }
+    
+    .cert-progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cert-progress-shine {
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation: shine 2s infinite;
+    }
+    
+    @keyframes shine {
+      to {
+        left: 100%;
+      }
+    }
+    
+    .cert-status {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5px;
+      font-size: 0.85rem;
+      color: rgba(224, 255, 227, 0.7);
+    }
+    
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 255, 204, 0.2);
+      border-radius: 5px;
+      padding: 20px;
+      transition: all 0.3s;
+    }
+    
+    .contact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 255, 204, 0.2);
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0a0a0a;
+      font-size: 1.5rem;
+    }
+    
+    .contact-type {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    .contact-value {
+      text-align: center;
+    }
+    
+    .contact-value a {
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .contact-value a:hover {
+      color: var(--primary);
+      text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+    }
+    
+    /* Footer */
+    .footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 255, 204, 0.2);
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(224, 255, 227, 0.7);
+      position: relative;
+    }
+    
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+    
+    .battery {
+      display: inline-block;
+      width: 24px;
+      height: 12px;
+      background: var(--primary);
+      position: relative;
+      border-radius: 2px;
+      margin: 0 5px;
+      vertical-align: middle;
+    }
+    
+    .battery::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -4px;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 6px;
+      background: var(--primary);
+      border-radius: 0 2px 2px 0;
+    }
+    
+    /* Terminal style typing effect */
+    .typed-text {
+      border-right: 0.15em solid var(--primary);
+      overflow: hidden;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+    }
+    
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: var(--primary) }
+    }
+    
+    /* Responsive Media Queries */
+    @media screen and (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+      
+      .border-container {
+        padding: 25px;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .profile-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .profile-image {
+        margin-bottom: 20px;
+      }
+      
+      .projects-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .cert-item {
+        width: 100%;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .terminal-container {
+      margin: auto;
+      max-width: 1000px;
+      background-color: #000000;
+      border: 1px solid #333;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+      overflow: hidden;
+      position: relative;
+}
+
+.terminal-header {
+  background-color: var(--terminal-gray);
+  padding: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+}
+
+.terminal-title {
+  color: #ddd;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+}
+
+.terminal-button:nth-child(1) {
+  background-color: var(--terminal-red);
+}
+
+.terminal-button:nth-child(2) {
+  background-color: #e09e33;
+}
+
+.terminal-button:nth-child(3) {
+  background-color: #17a34a;
+}
+
+.terminal-content {
+  padding: 15px;
+  position: relative;
+  color: var(--terminal-green);
+  min-height: 300px;
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: rgba(0, 255, 0, 0.15);
+  opacity: 0.7;
+  z-index: 5;
+  animation: scanline 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+.crt-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: 2;
+}
+
+.link-section {
+  position: relative;
+  z-index: 1;
+  padding-top: 10px;
+}
+
+.terminal-prefix {
+  color: var(--terminal-text);
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.command-prompt {
+  color: var(--terminal-green);
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.prompt-user {
+  color: #6495ed;
+}
+
+.prompt-host {
+  color: var(--terminal-green);
+}
+
+.prompt-path {
+  color: #ffffff;
+}
+
+.command-input {
+  color: var(--terminal-text);
+}
+
+.command-result {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  border-left: 1px solid var(--terminal-dark-green);
+}
+
+.link-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.link-row:nth-child(1) { animation-delay: 0.1s; }
+.link-row:nth-child(2) { animation-delay: 0.2s; }
+.link-row:nth-child(3) { animation-delay: 0.3s; }
+.link-row:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.link-icon {
+  color: var(--terminal-text);
+  margin-right: 10px;
+  width: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+.link-arrow {
+  color: var(--terminal-green);
+  margin: 0 5px;
+}
+
+.link-text a {
+  color: var(--terminal-text);
+  text-decoration: none;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.link-text a:hover {
+  color: var(--terminal-green);
+}
+
+.link-text a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--terminal-green);
+  transition: width 0.3s ease;
+}
+
+.link-text a:hover::before {
+  width: 100%;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background-color: var(--terminal-text);
+  margin-left: 5px;
+  animation: cursor-blink 1s infinite;
+  vertical-align: middle;
+}
+
+@keyframes cursor-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.status-bar {
+  background-color: var(--terminal-blue);
+  color: var(--terminal-text);
+  padding: 3px 10px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #444;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--terminal-green);
+  margin-right: 5px;
+  opacity: 0.8;
+  animation: status-blink 2s infinite;
+}
+
+@keyframes status-blink {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+.noise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFEGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMC0wNS0wMlQxNzozMzowNi0wNDowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjAtMDUtMDJUMTc6NDI6MjEtMDQ6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjAtMDUtMDJUMTc6NDI6MjEtMDQ6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6N2ZhMTU1ZGUtMTAxZC0yMDRkLTk3YWItY2QwMGNlYzI1OGFkIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjdmYTE1NWRlLTEwMWQtMjA0ZC05N2FiLWNkMDBjZWMyNThhZCIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjdmYTE1NWRlLTEwMWQtMjA0ZC05N2FiLWNkMDBjZWMyNThhZCI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6N2ZhMTU1ZGUtMTAxZC0yMDRkLTk3YWItY2QwMGNlYzI1OGFkIiBzdEV2dDp3aGVuPSIyMDIwLTA1LTAyVDE3OjMzOjA2LTA0OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PnOiBOcAAAPbSURBVGiB7ZlZqFVVFIb/dW6KDV00WmY0XCSaKA2SDaRmEQUNRA9ClEFRQYlkQUIPjQ+NEWVRA0FUFBZlZGEDmDZjWkYNVFDaZHbrpLfh6WGvi332OXuffbzt7XKu59fhrLX3+v51h7XXOZKamsaKBsAY4GagGRgPHF3EiOc74GfgG2AdsBZYPRrFHgPcCswD5gJNNfCxCVgGvAK8PdLFXgY8BpyakA+AfwAfAGuA3cBeoKOIjg5gH/Ab8DnwKfARsLOCjfHAncDTQHOqYmcAbwFHhtjeA/wI7ABagSVAO1Cao31bUoynBXgD2FpBRhfwGHB6isLb6RNZBcbWOKOxwBPA/gpylgNz4kzUAt8DLwe/7wOm1MB/NaYCbxQCORw3LdaSrJB5wcMvA+eNCmvFuQRYVQhmTggmJfuBV2MajgGagZtCNnuB54BngPXFZJZlEvB6IZhlwLAZKE2O9QXgTOA0YCFwF3AssA1YAswAjgcWAK+FKKvJzcBegTuBm2o0FSrxB3BWke9nAvsE3hVoqkMw24jL0V7gIv/ddoHb6hDImJBAJ3C+G28UWAocqEMg00IC3T6QVxYJXA88WeMcNAOXAleH+gQaQz9s9d9PCwmtq3FWrgI+AXaHfDX4OtsLiWyvcVCTgDnAmaE+gZ7yQnb577tC2nfEWZ5C1zL6Frvuf3ZLgVyWl5hOvwm9H8LuBpYD94e+/Qi4y4/zgB+A74E9wAF61+dKLAYuDPUJnBCyMdvpvyc09RO5Dfgn1C/QElnDDcB04EjgUCzHdAvQLfCTQEekjc+A0P/9PrLfm/vr6fGnVtMB4C5/fQ5wg8BB4Angl5hkSrxE/4Drgd3+ek2c7v8jOyZYdkrAHW2D6P6mxoGNCV05YzWQFuAGijGYvQ/YCUz3n2/y1y9Rcvtf0GcCe2nMGcw+iu5LWRwzgGmx/MURm0h+eynXcQ+wkb6dVZrWAVf46yl+nFgvkXf8eDpwpB9LwHfAxojNTxH7pLnNj2f78YOaRLJfGTOBbj9+C2weMJjHgX8j38wEngIe8Z9PAs6ptUh5Kjzt98xz/ZvA7vLpD9xI32v+Avq2oM8DV9dSJPt1MsFHtQm4wI/l17eiWE+hJUdveadWiuj5yF7+TvH/m1MQeXCQgCwfQK+8UzORcnacDVzv//fjMkSWZu2FeHiAgKyol8hsfz2u/AFdgkg53E5gMb0r7kB0AreXM5xiRsoHgBf9+CHw+BD6R5zBHKEPcMjDLPTXnf77zxPI6vEgTpv+HMcKYLlfhCWXSJmS+wS3N5pNOUOt/DJLSa6IHnbkEPkXEaroj5GU7JIAAAAASUVORK5CYII=");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Console output styling */
+.console-text {
+  color: var(--terminal-text);
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  margin-bottom: 15px;
+}
+
+/* Code block styling */
+.code-block {
+  background-color: #101010;
+  border: 1px solid #333;
+  padding: 10px;
+  margin: 10px 0;
+  font-family: monospace;
+  font-size: 13px;
+  overflow-x: auto;
+}
+
+/* Network activity indicators */
+.network-activity {
+  position: absolute;
+  bottom: 25px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0.6;
+  font-size: 10px;
+}
+
+.activity-line {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.activity-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.activity-dot-active {
+  background-color: var(--terminal-green);
+  animation: blink 1s infinite;
+}
+
+.activity-dot-idle {
+  background-color: #555;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Terminal prompt typing animation */
+.typing {
+  overflow: hidden;
+  border-right: .15em solid var(--terminal-green);
+  white-space: nowrap;
+  margin: 0;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--terminal-green) }
+}
+
+
+:root {
+  --terminal-green: #00ff00;
+  --terminal-dark-green: #005500;
+  --terminal-black: #0c0c0c;
+  --terminal-gray: #333333;
+  --terminal-text: #cccccc;
+  --terminal-blue: #0a4975;
+  --terminal-red: #d12c1f;
+}
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+      border-radius: 5px;
+    }
+    
+    @media (prefers-reduced-motion) {
+      .glitch-wrapper::before, .glitch-wrapper::after,
+      .border-container::before,
+      .cert-progress-shine {
+        animation: none;
+      }
+    }
+    
+    /* Additional Animation for WOW factor */
+    .power-up {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      width: 300%;
+      height: 300%;
+      background: radial-gradient(circle, rgba(0, 255, 204, 0.3) 0%, rgba(0, 255, 204, 0) 50%);
+      border-radius: 50%;
+      z-index: -1;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #ip-address {
+      color: #00ffe0;
+      background-color: rgba(0, 255, 224, 0.08);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.1em;
+      box-shadow: 0 0 5px #00ffe0, 0 0 10px #00ffe0 inset;
+      letter-spacing: 0.5px;
+    }
+        
+    
+    .power-up.active {
+      animation: powerUp 2s ease-out forwards;
+    }
+    
+    @keyframes powerUp {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="border-container">
+      <header>
+        <div class="glitch-wrapper">
+          <h1>Dimitar Dimitrov — Technical CV</h1>
+        </div>
+        <p class="subtitle typed-text">FULL-STACK DEVELOPER • CYBERSECURITY SPECIALIST • SYSTEM ARCHITECT</p>
+      </header>
+
+      <div class="section">
+        <h2><i class="fas fa-brain"></i> Profile</h2>
+        <div class="profile-content">
+          <div class="profile-image">
+            <img src="https://i.imgur.com/7I8fdW8.png" alt="Mr. Duracell Profile">
+          </div>
+          <div class="profile-text">
+            <p>Full-stack developer with a <strong>cybersecurity core</strong>. Builder of decentralized apps, GUI tools, automations, and threat-resistant systems. Fluent in <strong>code</strong>, <strong>infrastructure</strong>, and <strong>execution under pressure</strong>.</p>
+            <p>Specialized in developing secure applications with a focus on performance optimization and bulletproof architecture. Over 5 years of experience working across multiple tech stacks and delivering mission-critical solutions on tight deadlines.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2><i class="fas fa-microchip"></i> Technical Stack</h2>
+        <div class="logo-grid">
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+            </div>
+            <div class="tech-name">HTML5</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+            </div>
+            <div class="tech-name">CSS3</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+            </div>
+            <div class="tech-name">JavaScript</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript">
+            </div>
+            <div class="tech-name">TypeScript</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+            </div>
+            <div class="tech-name">React</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg" alt="NextJS">
+            </div>
+            <div class="tech-name">NextJS</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS">
+            </div>
+            <div class="tech-name">Tailwind CSS</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://seeklogo.com/images/F/framer-motion-logo-DA1E33CAA1-seeklogo.com.png" alt="Framer Motion">
+            </div>
+            <div class="tech-name">Framer Motion</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJS">
+            </div>
+            <div class="tech-name">NodeJS</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
+            </div>
+            <div class="tech-name">C#</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+            </div>
+            <div class="tech-name">Python</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash">
+            </div>
+            <div class="tech-name">Bash</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://www.svgrepo.com/show/373992/powershell.svg" alt="PowerShell">
+            </div>
+            <div class="tech-name">PowerShell</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+            </div>
+            <div class="tech-name">MongoDB</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+            </div>
+            <div class="tech-name">PostgreSQL</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+            </div>
+            <div class="tech-name">MySQL</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="SQLServer">
+            </div>
+            <div class="tech-name">SQLServer</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+            </div>
+            <div class="tech-name">Linux</div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+            </div>
+            <div class="tech-name">Docker</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">
+            </div>
+            <div class="tech-name">Firebase</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" alt="Apache">
+            </div>
+            <div class="tech-name">Apache</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2><i class="fas fa-code-branch"></i> Projects</h2>
+        <ul class="projects-list">
+          <li class="project-card">
+            <h3 class="project-title"><i class="fas fa-shield-alt"></i> <a href="https://mintsec.xyz" target="_blank">MintSec</a></h3>
+            <div class="project-desc">Web3 Solana platform with advanced liquidity logic, smart contract integration, and wallet-gated UI. Built for high-security cryptocurrency environments.</div>
+            <div class="project-tags" style="position: absolute; bottom: 10px;">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Solana</span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">Web3</span>
+            </div>
+          </li>
+          <li class="project-card">
+            <h3 class="project-title"><i class="fas fa-user-secret"></i> <a href="https://github.com/sp3c1fic/PentestingSystem" target="_blank">PenTestingSystem</a></h3>
+            <div class="project-desc">ASP.NET Core DNS-style security platform for penetration testing and vulnerability assessment with real-time monitoring.</div>
+            <div class="project-tags" style="position: absolute; bottom: 10px;">
+              <span class="project-tag">C#</span>
+              <span class="project-tag">ASP.NET Core</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+            </div>
+          </li>
+          <li class="project-card">
+            <h3 class="project-title"><i class="fas fa-spider"></i> <a href="https://github.com/sp3c1fic/scraper" target="_blank">Web Scraper</a></h3>
+            <div class="project-desc">GUI Python application for targeted data extraction with automation capabilities, multi-threading, and executable packaging.</div>
+            <div class="project-tags" style="position: absolute; bottom: 10px;">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">PyQT6</span>
+              <span class="project-tag">Selenium</span>
+              <span class="project-tag">pandas</span>
+              <span class="project-tag">BeautifulSoup</span>
+            </div>
+          </li>
+          <li class="project-card">
+            <h3 class="project-title"><i class="fas fa-robot"></i> <a href="https://github.com/sp3c1fic/keylogger" target="_blank"> KeyLogger PoC</a></h3>
+            <div class="project-desc">A Python keylogger that captures keystrokes, screenshots, and sends data via email. Designed for educational purposes to demonstrate keylogging and surveillance techniques.</div>
+            <div class="project-tags">
+              <span class="project-tag" style="position: absolute; bottom: 10px;">Python</span>
+            </div>
+          </li>
+          <li class="project-card">
+            <h3 class="project-title"><i class="fas fa-terminal"></i> <a href="https://github.com/sp3c1fic/port-scanner" target="_blank"> Port Hunter</a></h3>
+            <div class="project-desc">Python script designed to scan a range of ports on a specified IP address to detect open ports and retrieve associated banners.</div>
+            <div class="project-tags" style="position: absolute; bottom: 10px;">
+              <span class="project-tag">Python</span>
+            </div>
+          </li>
+          <li class="project-card">
+            <h3 class="project-title"><i class="fas fa-message"></i> <a href="https://solachat.org" target="_blank">SolaChat</a></h3>
+            <div class="project-desc">Decentralized, end-to-end encrypted Web3 messenger.
+              No servers. No trails. Just P2P comms — self-hosted and silence-proof.</div>
+            <div class="project-tags" style="position: absolute; bottom: 10px;" >
+              <span class="project-tag">React</span>
+              <span class="project-tag">Solana</span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">Web3</span>
+            </div>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+
+  </div>
+  <div class="terminal-container" style="position: relative; bottom: 15px;">
+    <div class="terminal-header">
+      <div class="terminal-title">user@kali: ~/recon</div>
+      <div class="terminal-controls">
+        <div class="terminal-button"></div>
+        <div class="terminal-button"></div>
+        <div class="terminal-button"></div>
+      </div>
+    </div>
+    
+    <div class="terminal-content">
+      <div class="scan-line"></div>
+      <div class="crt-overlay"></div>
+      <div class="noise"></div>
+      
+      
+      <!-- Link Section -->
+      <div class="link-section">
+        <div class="terminal-prefix">
+          <span class="command-prompt">
+            <span class="prompt-user">user</span>@<span class="prompt-host">kali</span>:<span class="prompt-path">~/recon</span>$
+          </span>
+          <span class="command-input">./enumerate_endpoints</span>
+        </div>
+        
+        <div class="console-text">
+[*] Enumerating target endpoints...
+[*] Found 4 connection points
+[*] Retrieving access data...
+        </div>
+        
+        <div class="code-block">
+TARGET ENDPOINTS:
+        </div>
+        
+        <div class="link-row">
+          <span class="link-icon">[01]</span>
+          <span class="link-arrow">-></span>
+          <div class="link-text">
+            <a href="https://github.com/sp3c1fic" target="_blank">github.com/sp3c1fic</a>
+          </div>
+        </div>
+        
+        <div class="link-row">
+          <span class="link-icon">[02]</span>
+          <span class="link-arrow">-></span>
+          <div class="link-text">
+            <a href="https://www.linkedin.com/in/dimitar-dimitrov-622892152/" target="_blank">linkedin.com/in/dimitar-dimitrov-622892152</a>
+          </div>
+        </div>
+        
+        <div class="link-row">
+          <span class="link-icon">[03]</span>
+          <span class="link-arrow">-></span>
+          <div class="link-text">
+            <a href="https://medium.com/@stifki234" target="_blank">medium.com/@stifki234</a>
+          </div>
+        </div>
+        
+        <div class="link-row">
+          <span class="link-icon">[04]</span>
+          <span class="link-arrow">-></span>
+          <div class="link-text">
+            <a href="https://tryhackme.com/p/stjimmyyy" target="_blank">tryhackme.com/p/stjimmyyy</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="terminal-prefix" style="margin-top: 15px;">
+        <span class="command-prompt">
+          <span class="prompt-user">user</span>@<span class="prompt-host">kali</span>:<span class="prompt-path">~/recon</span>$
+        </span>
+        <span class="cursor"></span>
+      </div>
+      
+      <!-- Network activity indicator -->
+      <div class="network-activity">
+        <div class="activity-line">
+          <div class="activity-dot activity-dot-active"></div>
+          <span>RX: active</span>
+        </div>
+        <div class="activity-line">
+          <div class="activity-dot activity-dot-idle"></div>
+          <span>TX: idle</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="status-bar">
+      <div class="status-item">
+        <div class="status-indicator"></div>
+        <span>SECURE_SHELL</span>
+      </div>
+      <div class="status-item">
+        <span id="ip-address"></span>
+      </div>
+    </div>
+  </div>
+
+<script>
+
+  function getIp() {
+    fetch("https://api.ipify.org?format=json")
+                .then(response => response.json())
+                .then(data => {
+                    // Display the IP address on the screen
+                    document.getElementById("ip-address").textContent = `IP: ${data.ip}`;
+                })
+                .catch(error => {
+                    console.error("Error fetching IP address:", error);
+                });
+  }
+
+  getIp();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add subtle noise effect
+      const noise = document.querySelector('.noise');
+      
+      // Create random static noise effect
+      setInterval(() => {
+        noise.style.backgroundPosition = `${Math.random() * 100}% ${Math.random() * 100}%`;
+      }, 50);
+      
+      // Simulate random network activity
+      setInterval(() => {
+        const dots = document.querySelectorAll('.activity-dot');
+        dots.forEach(dot => {
+          if (Math.random() > 0.7) {
+            dot.classList.toggle('activity-dot-active');
+            dot.classList.toggle('activity-dot-idle');
+          }
+        });
+      }, 800);
+    });
+</script>
+</body>
